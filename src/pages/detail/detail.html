@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>Item Informations</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngFor="let item of items; let i = index">
+
+    <ion-card>
+      <ion-card-content style="font-weight: bold; font-size: 105%;">
+        <span [innerHTML]="(item.keywords | uppercase) | safe"></span>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card style="margin-bottom: 28px;">
+      <p [ngSwitch]="item.category">
+        <img *ngSwitchCase="'Blue Bin'" src="assets/img/bluebin.png" class="category" />
+        <img *ngSwitchCase="'Green Bin'" src="assets/img/greenbin.png" class="category" />
+        <img *ngSwitchCase="'Garbage'" src="assets/img/garbagebin.png" class="category" />
+        <img *ngSwitchCase="'Depot'" src="assets/img/dropoff.png" class="category" />
+        <img *ngSwitchCase="'Eletronic Waste'" src="assets/img/eletronic.png" class="category" />
+        <img *ngSwitchCase="'HHW'" src="assets/img/hhw.png" class="category" />
+        <img *ngSwitchCase="'Metal Items'" src="assets/img/metal.png" class="category" />
+        <img *ngSwitchCase="'Oversize'" src="assets/img/oversize.png" class="category" />
+        <img *ngSwitchCase="'Yard Waste'" src="assets/img/yardwaste.png" class="category" />
+        <img *ngSwitchCase="'Not Accepted'" src="assets/img/notaccepted.png" class="category" />
+        <img *ngSwitchDefault src="assets/img/notaccepted.png" class="category" />
+      </p>
+
+      <ion-card-header text-center>
+        <p [ngSwitch]="item.category">          
+          <span *ngSwitchCase="'HHW'" style="font-weight: bold">HOUSEHOLD HAZARDOUS WASTE</span>
+          <span *ngSwitchDefault [innerHTML]="(item.category | uppercase) | safe" style="font-weight: bold"></span>
+        </p>        
+      </ion-card-header>
+
+      <ion-card-content>
+        <span [innerHTML]="item.body | safe : 'encodedHtml'" text-justify></span>
+      </ion-card-content>
+    </ion-card>
+
+  </div>
+</ion-content>
+
+<ion-footer color="dark">
+  <div class="banner"></div>
+</ion-footer>

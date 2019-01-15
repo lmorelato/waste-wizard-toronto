@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar color="dark">
+    <ion-title>What goes where?</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-searchbar #searchBar [(ngModel)]="text" (ionInput)="search()" placeholder="type your item here">
+  </ion-searchbar>
+
+  <div *ngFor="let key of keywords">
+    <ion-card (click)="select(key)">
+      <ion-card-content>
+        <span [innerHTML]="key | safe"></span>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+</ion-content>
+
+<ion-footer color="dark">
+  <div class="banner"></div>
+</ion-footer>

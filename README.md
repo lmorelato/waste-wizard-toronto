@@ -1,3 +1,5 @@
+Ionic Project
+
 Not sure where a waste item goes?
 
 This is an offline tool that tells you what goes where.
